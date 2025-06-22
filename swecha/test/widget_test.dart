@@ -28,7 +28,8 @@ void main() {
     expect(find.text('1'), findsOneWidget);
   });
 
-  testWidgets('LoginPage displays all three login options', (WidgetTester tester) async {
+  testWidgets('LoginPage displays all three login options',
+      (WidgetTester tester) async {
     await tester.pumpWidget(
       const MaterialApp(
         home: LoginPage(),

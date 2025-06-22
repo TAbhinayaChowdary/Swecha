@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:io';
 import 'volPReg.dart';
 import 'volVital.dart';
 import 'volDas.dart';
@@ -21,7 +22,8 @@ class VolunteerMainPage extends StatelessWidget {
     if (title == 'Patient registration') {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const PatientRegistrationPage()),
+        MaterialPageRoute(
+            builder: (context) => const PatientRegistrationPage()),
       );
       return;
     }
@@ -61,71 +63,109 @@ class VolunteerMainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFFE3F2FD),
-      appBar: AppBar(
-        title: const Text(
-          'Volunteer\'s Main Page',
-          style: TextStyle(color: Colors.white),
-        ),
-        backgroundColor: const Color(0xFF007BFF),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Center(
-              child: Text(
-                'DASHBOARD',
-                style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
+    return WillPopScope(
+      onWillPop: () async {
+        final shouldExit = await showDialog<bool>(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: const Text('Exit'),
+            content: const Text('Do you want to quit?'),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(true),
+                child: const Text(
+                  'Yes',
+                  style: TextStyle(
+                    color: Color(0xFF007BFF),
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(height: 20),
-            Expanded(
-              child: GridView.count(
-                crossAxisCount: 2,
-                crossAxisSpacing: 16,
-                mainAxisSpacing: 16,
-                children: _options.map((option) {
-                  return GestureDetector(
-                    onTap: () => _onOptionTap(context, option.title),
-                    child: Card(
-                      elevation: 4,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16),
-                        side: const BorderSide(
-                          color: Colors.black,
-                          width: 2,
-                        ),
-                      ),
-                      child: Center(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Icon(option.icon, size: 48, color: const Color(0xFF26A69A)),
-                            const SizedBox(height: 12),
-                            Text(
-                              option.title,
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  );
-                }).toList(),
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(false),
+                child: const Text(
+                  'No',
+                  style: TextStyle(
+                    color: Color(0xFF007BFF),
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
+        );
+        if (shouldExit == true) {
+          exit(0);
+        }
+        return false;
+      },
+      child: Scaffold(
+        backgroundColor: const Color(0xFFE3F2FD),
+        appBar: AppBar(
+          title: const Text(
+            'Volunteer\'s Main Page',
+            style: TextStyle(color: Colors.white),
+          ),
+          backgroundColor: const Color(0xFF007BFF),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Center(
+                child: Text(
+                  'Dashboard',
+                  style: TextStyle(
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+              Expanded(
+                child: GridView.count(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 16,
+                  mainAxisSpacing: 16,
+                  children: _options.map((option) {
+                    return GestureDetector(
+                      onTap: () => _onOptionTap(context, option.title),
+                      child: Card(
+                        elevation: 4,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16),
+                          side: const BorderSide(
+                            color: Colors.black,
+                            width: 2,
+                          ),
+                        ),
+                        child: Center(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(option.icon,
+                                  size: 48, color: const Color(0xFF26A69A)),
+                              const SizedBox(height: 12),
+                              Text(
+                                option.title,
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    );
+                  }).toList(),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

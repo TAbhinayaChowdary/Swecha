@@ -7,16 +7,26 @@ class DoctorPrescriptionPage extends StatefulWidget {
   State<DoctorPrescriptionPage> createState() => _DoctorPrescriptionPageState();
 }
 
-class _DoctorPrescriptionPageState extends State<DoctorPrescriptionPage> with SingleTickerProviderStateMixin {
+class _DoctorPrescriptionPageState extends State<DoctorPrescriptionPage>
+    with SingleTickerProviderStateMixin {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _bookNoController = TextEditingController();
   late TabController _tabController;
-  List<_PrescriptionItem> _items = [ _PrescriptionItem() ];
+  List<_PrescriptionItem> _items = [_PrescriptionItem()];
+  int _currentTabIndex = 0;
 
   @override
   void initState() {
     super.initState();
     _tabController = TabController(length: 2, vsync: this);
+    _tabController.addListener(() {
+      if (_tabController.indexIsChanging ||
+          _tabController.index != _currentTabIndex) {
+        setState(() {
+          _currentTabIndex = _tabController.index;
+        });
+      }
+    });
   }
 
   @override
@@ -44,7 +54,8 @@ class _DoctorPrescriptionPageState extends State<DoctorPrescriptionPage> with Si
     if (_formKey.currentState?.validate() ?? false) {
       // TODO: Handle form submission
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Prescription submitted (implement logic)')),
+        const SnackBar(
+            content: Text('Prescription submitted (implement logic)')),
       );
     }
   }
@@ -104,7 +115,9 @@ class _DoctorPrescriptionPageState extends State<DoctorPrescriptionPage> with Si
                       style: const TextStyle(color: Colors.black),
                       decoration: _inputDecoration('Book No'),
                       cursorColor: Colors.black,
-                      validator: (value) => value == null || value.isEmpty ? 'Enter Book No' : null,
+                      validator: (value) => value == null || value.isEmpty
+                          ? 'Enter Book No'
+                          : null,
                     ),
                     const SizedBox(height: 18),
                     Container(
@@ -122,6 +135,11 @@ class _DoctorPrescriptionPageState extends State<DoctorPrescriptionPage> with Si
                           borderRadius: BorderRadius.circular(12),
                         ),
                         indicatorSize: TabBarIndicatorSize.tab,
+                        onTap: (index) {
+                          setState(() {
+                            _currentTabIndex = index;
+                          });
+                        },
                         tabs: const [
                           Tab(text: 'Medicine'),
                           Tab(text: 'Non-Medicine'),
@@ -147,9 +165,15 @@ class _DoctorPrescriptionPageState extends State<DoctorPrescriptionPage> with Si
                               TextFormField(
                                 controller: item.medicineIdController,
                                 style: const TextStyle(color: Colors.black),
-                                decoration: _inputDecoration(_tabController.index == 0 ? 'Medicine ID' : 'Non-Medicine ID'),
+                                decoration: _inputDecoration(
+                                    _currentTabIndex == 0
+                                        ? 'Medicine ID'
+                                        : 'Non-Medicine ID'),
                                 cursorColor: Colors.black,
-                                validator: (value) => value == null || value.isEmpty ? 'Enter ID' : null,
+                                validator: (value) =>
+                                    value == null || value.isEmpty
+                                        ? 'Enter ID'
+                                        : null,
                               ),
                               const SizedBox(height: 12),
                               TextFormField(
@@ -157,31 +181,43 @@ class _DoctorPrescriptionPageState extends State<DoctorPrescriptionPage> with Si
                                 style: const TextStyle(color: Colors.black),
                                 decoration: _inputDecoration('Days'),
                                 cursorColor: Colors.black,
-                                validator: (value) => value == null || value.isEmpty ? 'Enter Days' : null,
+                                validator: (value) =>
+                                    value == null || value.isEmpty
+                                        ? 'Enter Days'
+                                        : null,
                               ),
                               const SizedBox(height: 12),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   CheckboxListTile(
-                                    title: const Text('Morning', style: TextStyle(color: Colors.black)),
+                                    title: const Text('Morning',
+                                        style: TextStyle(color: Colors.black)),
                                     value: item.morning,
-                                    onChanged: (val) => setState(() => item.morning = val ?? false),
-                                    controlAffinity: ListTileControlAffinity.leading,
+                                    onChanged: (val) => setState(
+                                        () => item.morning = val ?? false),
+                                    controlAffinity:
+                                        ListTileControlAffinity.leading,
                                     activeColor: Color(0xFF007BFF),
                                   ),
                                   CheckboxListTile(
-                                    title: const Text('Afternoon', style: TextStyle(color: Colors.black)),
+                                    title: const Text('Afternoon',
+                                        style: TextStyle(color: Colors.black)),
                                     value: item.afternoon,
-                                    onChanged: (val) => setState(() => item.afternoon = val ?? false),
-                                    controlAffinity: ListTileControlAffinity.leading,
+                                    onChanged: (val) => setState(
+                                        () => item.afternoon = val ?? false),
+                                    controlAffinity:
+                                        ListTileControlAffinity.leading,
                                     activeColor: Color(0xFF007BFF),
                                   ),
                                   CheckboxListTile(
-                                    title: const Text('Night', style: TextStyle(color: Colors.black)),
+                                    title: const Text('Night',
+                                        style: TextStyle(color: Colors.black)),
                                     value: item.night,
-                                    onChanged: (val) => setState(() => item.night = val ?? false),
-                                    controlAffinity: ListTileControlAffinity.leading,
+                                    onChanged: (val) => setState(
+                                        () => item.night = val ?? false),
+                                    controlAffinity:
+                                        ListTileControlAffinity.leading,
                                     activeColor: Color(0xFF007BFF),
                                   ),
                                 ],
@@ -189,7 +225,9 @@ class _DoctorPrescriptionPageState extends State<DoctorPrescriptionPage> with Si
                               const SizedBox(height: 8),
                               Text(
                                 'Calculated Quantity: ${item.calculatedQuantity}',
-                                style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black),
                               ),
                               const SizedBox(height: 8),
                               ElevatedButton(

@@ -93,7 +93,9 @@ class _VitalsPageState extends State<VitalsPage> {
                       style: const TextStyle(color: Colors.black),
                       decoration: _inputDecoration('Book Number'),
                       cursorColor: Colors.black,
-                      validator: (value) => value == null || value.isEmpty ? 'Enter Book Number' : null,
+                      validator: (value) => value == null || value.isEmpty
+                          ? 'Enter Book Number'
+                          : null,
                     ),
                     const SizedBox(height: 12),
                     TextFormField(
@@ -101,7 +103,8 @@ class _VitalsPageState extends State<VitalsPage> {
                       style: const TextStyle(color: Colors.black),
                       decoration: _inputDecoration('BP (systolic/diastolic)'),
                       cursorColor: Colors.black,
-                      validator: (value) => value == null || value.isEmpty ? 'Enter BP' : null,
+                      validator: (value) =>
+                          value == null || value.isEmpty ? 'Enter BP' : null,
                     ),
                     const SizedBox(height: 12),
                     TextFormField(
@@ -109,7 +112,8 @@ class _VitalsPageState extends State<VitalsPage> {
                       style: const TextStyle(color: Colors.black),
                       decoration: _inputDecoration('Pulse'),
                       cursorColor: Colors.black,
-                      validator: (value) => value == null || value.isEmpty ? 'Enter Pulse' : null,
+                      validator: (value) =>
+                          value == null || value.isEmpty ? 'Enter Pulse' : null,
                     ),
                     const SizedBox(height: 12),
                     TextFormField(
@@ -117,7 +121,8 @@ class _VitalsPageState extends State<VitalsPage> {
                       style: const TextStyle(color: Colors.black),
                       decoration: _inputDecoration('RBS'),
                       cursorColor: Colors.black,
-                      validator: (value) => value == null || value.isEmpty ? 'Enter RBS' : null,
+                      validator: (value) =>
+                          value == null || value.isEmpty ? 'Enter RBS' : null,
                     ),
                     const SizedBox(height: 12),
                     TextFormField(
@@ -125,7 +130,9 @@ class _VitalsPageState extends State<VitalsPage> {
                       style: const TextStyle(color: Colors.black),
                       decoration: _inputDecoration('Weight (kg)'),
                       cursorColor: Colors.black,
-                      validator: (value) => value == null || value.isEmpty ? 'Enter Weight' : null,
+                      validator: (value) => value == null || value.isEmpty
+                          ? 'Enter Weight'
+                          : null,
                     ),
                     const SizedBox(height: 12),
                     TextFormField(
@@ -133,7 +140,9 @@ class _VitalsPageState extends State<VitalsPage> {
                       style: const TextStyle(color: Colors.black),
                       decoration: _inputDecoration('Height (cm)'),
                       cursorColor: Colors.black,
-                      validator: (value) => value == null || value.isEmpty ? 'Enter Height' : null,
+                      validator: (value) => value == null || value.isEmpty
+                          ? 'Enter Height'
+                          : null,
                     ),
                     const SizedBox(height: 12),
                     TextFormField(
@@ -141,7 +150,9 @@ class _VitalsPageState extends State<VitalsPage> {
                       style: const TextStyle(color: Colors.black),
                       decoration: _inputDecoration('Last Meal and Time'),
                       cursorColor: Colors.black,
-                      validator: (value) => value == null || value.isEmpty ? 'Enter Last Meal and Time' : null,
+                      validator: (value) => value == null || value.isEmpty
+                          ? 'Enter Last Meal and Time'
+                          : null,
                     ),
                     const SizedBox(height: 20),
                     ElevatedButton(

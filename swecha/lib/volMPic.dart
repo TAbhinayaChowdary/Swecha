@@ -21,7 +21,8 @@ class _MedicinePickupPageState extends State<MedicinePickupPage> {
     if (_formKey.currentState?.validate() ?? false) {
       // TODO: Handle fetch prescription logic
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Fetching prescription (implement logic)')),
+        const SnackBar(
+            content: Text('Fetching prescription (implement logic)')),
       );
     }
   }
@@ -81,12 +82,14 @@ class _MedicinePickupPageState extends State<MedicinePickupPage> {
                       style: const TextStyle(color: Colors.black),
                       decoration: _inputDecoration('Book No'),
                       cursorColor: Colors.black,
-                      validator: (value) => value == null || value.isEmpty ? 'Enter Book No' : null,
+                      validator: (value) => value == null || value.isEmpty
+                          ? 'Enter Book No'
+                          : null,
                     ),
                     const SizedBox(height: 24),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.black,
+                        backgroundColor: Colors.green,
                         foregroundColor: Colors.white,
                         minimumSize: const Size.fromHeight(48),
                       ),

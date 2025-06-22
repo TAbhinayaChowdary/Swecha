@@ -22,7 +22,7 @@ class _VolunteerLoginPageState extends State<VolunteerLoginPage> {
 
   void _login() {
     if (_formKey.currentState?.validate() ?? false) {
-      Navigator.push(
+      Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const VolunteerMainPage()),
       );
@@ -75,9 +75,11 @@ class _VolunteerLoginPageState extends State<VolunteerLoginPage> {
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
-                      borderSide: const BorderSide(color: Colors.black, width: 2),
+                      borderSide:
+                          const BorderSide(color: Colors.black, width: 2),
                     ),
-                    contentPadding: const EdgeInsets.symmetric(vertical: 18, horizontal: 16),
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: 18, horizontal: 16),
                   ),
                   cursorColor: Colors.black,
                   validator: (value) {
@@ -91,9 +93,11 @@ class _VolunteerLoginPageState extends State<VolunteerLoginPage> {
                 TextFormField(
                   controller: _phoneController,
                   keyboardType: TextInputType.phone,
+                  maxLength: 10,
                   style: const TextStyle(color: Colors.black),
                   decoration: InputDecoration(
                     labelText: 'Phone Number',
+                    counterText: "",
                     labelStyle: const TextStyle(color: Colors.black),
                     filled: true,
                     fillColor: Colors.white,
@@ -106,14 +110,19 @@ class _VolunteerLoginPageState extends State<VolunteerLoginPage> {
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
-                      borderSide: const BorderSide(color: Colors.black, width: 2),
+                      borderSide:
+                          const BorderSide(color: Colors.black, width: 2),
                     ),
-                    contentPadding: const EdgeInsets.symmetric(vertical: 18, horizontal: 16),
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: 18, horizontal: 16),
                   ),
                   cursorColor: Colors.black,
                   validator: (value) {
                     if (value == null || value.trim().isEmpty) {
                       return 'Please enter your phone number';
+                    }
+                    if (value.length != 10) {
+                      return 'Phone number must be 10 digits';
                     }
                     return null;
                   },

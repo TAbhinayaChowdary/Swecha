@@ -98,7 +98,9 @@ class _DoctorAssigningPageState extends State<DoctorAssigningPage> {
                       style: const TextStyle(color: Colors.black),
                       decoration: _inputDecoration('Book Number'),
                       cursorColor: Colors.black,
-                      validator: (value) => value == null || value.isEmpty ? 'Enter Book Number' : null,
+                      validator: (value) => value == null || value.isEmpty
+                          ? 'Enter Book Number'
+                          : null,
                     ),
                     const SizedBox(height: 18),
                     const Text(

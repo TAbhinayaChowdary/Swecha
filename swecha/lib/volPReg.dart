@@ -4,7 +4,8 @@ class PatientRegistrationPage extends StatefulWidget {
   const PatientRegistrationPage({super.key});
 
   @override
-  State<PatientRegistrationPage> createState() => _PatientRegistrationPageState();
+  State<PatientRegistrationPage> createState() =>
+      _PatientRegistrationPageState();
 }
 
 class _PatientRegistrationPageState extends State<PatientRegistrationPage> {
@@ -89,16 +90,21 @@ class _PatientRegistrationPageState extends State<PatientRegistrationPage> {
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
-                          borderSide: const BorderSide(color: Color(0xFFBDBDBD)),
+                          borderSide:
+                              const BorderSide(color: Color(0xFFBDBDBD)),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
-                          borderSide: const BorderSide(color: Colors.black, width: 2),
+                          borderSide:
+                              const BorderSide(color: Colors.black, width: 2),
                         ),
-                        contentPadding: const EdgeInsets.symmetric(vertical: 18, horizontal: 16),
+                        contentPadding: const EdgeInsets.symmetric(
+                            vertical: 18, horizontal: 16),
                       ),
                       cursorColor: Colors.black,
-                      validator: (value) => value == null || value.isEmpty ? 'Enter Book ID' : null,
+                      validator: (value) => value == null || value.isEmpty
+                          ? 'Enter Book ID'
+                          : null,
                     ),
                     const SizedBox(height: 12),
                     TextFormField(
@@ -114,16 +120,20 @@ class _PatientRegistrationPageState extends State<PatientRegistrationPage> {
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
-                          borderSide: const BorderSide(color: Color(0xFFBDBDBD)),
+                          borderSide:
+                              const BorderSide(color: Color(0xFFBDBDBD)),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
-                          borderSide: const BorderSide(color: Colors.black, width: 2),
+                          borderSide:
+                              const BorderSide(color: Colors.black, width: 2),
                         ),
-                        contentPadding: const EdgeInsets.symmetric(vertical: 18, horizontal: 16),
+                        contentPadding: const EdgeInsets.symmetric(
+                            vertical: 18, horizontal: 16),
                       ),
                       cursorColor: Colors.black,
-                      validator: (value) => value == null || value.isEmpty ? 'Enter Name' : null,
+                      validator: (value) =>
+                          value == null || value.isEmpty ? 'Enter Name' : null,
                     ),
                     const SizedBox(height: 12),
                     TextFormField(
@@ -140,16 +150,20 @@ class _PatientRegistrationPageState extends State<PatientRegistrationPage> {
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
-                          borderSide: const BorderSide(color: Color(0xFFBDBDBD)),
+                          borderSide:
+                              const BorderSide(color: Color(0xFFBDBDBD)),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
-                          borderSide: const BorderSide(color: Colors.black, width: 2),
+                          borderSide:
+                              const BorderSide(color: Colors.black, width: 2),
                         ),
-                        contentPadding: const EdgeInsets.symmetric(vertical: 18, horizontal: 16),
+                        contentPadding: const EdgeInsets.symmetric(
+                            vertical: 18, horizontal: 16),
                       ),
                       cursorColor: Colors.black,
-                      validator: (value) => value == null || value.isEmpty ? 'Enter Age' : null,
+                      validator: (value) =>
+                          value == null || value.isEmpty ? 'Enter Age' : null,
                     ),
                     const SizedBox(height: 12),
                     DropdownButtonFormField<String>(
@@ -165,21 +179,27 @@ class _PatientRegistrationPageState extends State<PatientRegistrationPage> {
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
-                          borderSide: const BorderSide(color: Color(0xFFBDBDBD)),
+                          borderSide:
+                              const BorderSide(color: Color(0xFFBDBDBD)),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
-                          borderSide: const BorderSide(color: Colors.black, width: 2),
+                          borderSide:
+                              const BorderSide(color: Colors.black, width: 2),
                         ),
-                        contentPadding: const EdgeInsets.symmetric(vertical: 18, horizontal: 16),
+                        contentPadding: const EdgeInsets.symmetric(
+                            vertical: 18, horizontal: 16),
                       ),
                       items: const [
                         DropdownMenuItem(value: 'Male', child: Text('Male')),
-                        DropdownMenuItem(value: 'Female', child: Text('Female')),
+                        DropdownMenuItem(
+                            value: 'Female', child: Text('Female')),
                         DropdownMenuItem(value: 'Other', child: Text('Other')),
                       ],
                       onChanged: (value) => setState(() => _gender = value),
-                      validator: (value) => value == null || value.isEmpty ? 'Select Gender' : null,
+                      validator: (value) => value == null || value.isEmpty
+                          ? 'Select Gender'
+                          : null,
                     ),
                     const SizedBox(height: 12),
                     TextFormField(
@@ -196,20 +216,26 @@ class _PatientRegistrationPageState extends State<PatientRegistrationPage> {
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
-                          borderSide: const BorderSide(color: Color(0xFFBDBDBD)),
+                          borderSide:
+                              const BorderSide(color: Color(0xFFBDBDBD)),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
-                          borderSide: const BorderSide(color: Colors.black, width: 2),
+                          borderSide:
+                              const BorderSide(color: Colors.black, width: 2),
                         ),
-                        contentPadding: const EdgeInsets.symmetric(vertical: 18, horizontal: 16),
+                        contentPadding: const EdgeInsets.symmetric(
+                            vertical: 18, horizontal: 16),
                       ),
                       cursorColor: Colors.black,
-                      validator: (value) => value == null || value.isEmpty ? 'Enter Phone Number' : null,
+                      validator: (value) => value == null || value.isEmpty
+                          ? 'Enter Phone Number'
+                          : null,
                     ),
                     const SizedBox(height: 18),
                     Container(
-                      padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 10),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 6, horizontal: 10),
                       decoration: BoxDecoration(
                         color: const Color(0xFFFFA726),
                         borderRadius: BorderRadius.circular(8),
@@ -240,16 +266,21 @@ class _PatientRegistrationPageState extends State<PatientRegistrationPage> {
                               ),
                               enabledBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(12),
-                                borderSide: const BorderSide(color: Color(0xFFBDBDBD)),
+                                borderSide:
+                                    const BorderSide(color: Color(0xFFBDBDBD)),
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(12),
-                                borderSide: const BorderSide(color: Colors.black, width: 2),
+                                borderSide: const BorderSide(
+                                    color: Colors.black, width: 2),
                               ),
-                              contentPadding: const EdgeInsets.symmetric(vertical: 18, horizontal: 16),
+                              contentPadding: const EdgeInsets.symmetric(
+                                  vertical: 18, horizontal: 16),
                             ),
                             cursorColor: Colors.black,
-                            validator: (value) => value == null || value.isEmpty ? 'Enter Door No.' : null,
+                            validator: (value) => value == null || value.isEmpty
+                                ? 'Enter Door No.'
+                                : null,
                           ),
                         ),
                         const SizedBox(width: 8),
@@ -267,16 +298,21 @@ class _PatientRegistrationPageState extends State<PatientRegistrationPage> {
                               ),
                               enabledBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(12),
-                                borderSide: const BorderSide(color: Color(0xFFBDBDBD)),
+                                borderSide:
+                                    const BorderSide(color: Color(0xFFBDBDBD)),
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(12),
-                                borderSide: const BorderSide(color: Colors.black, width: 2),
+                                borderSide: const BorderSide(
+                                    color: Colors.black, width: 2),
                               ),
-                              contentPadding: const EdgeInsets.symmetric(vertical: 18, horizontal: 16),
+                              contentPadding: const EdgeInsets.symmetric(
+                                  vertical: 18, horizontal: 16),
                             ),
                             cursorColor: Colors.black,
-                            validator: (value) => value == null || value.isEmpty ? 'Enter Street Name' : null,
+                            validator: (value) => value == null || value.isEmpty
+                                ? 'Enter Street Name'
+                                : null,
                           ),
                         ),
                         const SizedBox(width: 8),
@@ -294,16 +330,21 @@ class _PatientRegistrationPageState extends State<PatientRegistrationPage> {
                               ),
                               enabledBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(12),
-                                borderSide: const BorderSide(color: Color(0xFFBDBDBD)),
+                                borderSide:
+                                    const BorderSide(color: Color(0xFFBDBDBD)),
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(12),
-                                borderSide: const BorderSide(color: Colors.black, width: 2),
+                                borderSide: const BorderSide(
+                                    color: Colors.black, width: 2),
                               ),
-                              contentPadding: const EdgeInsets.symmetric(vertical: 18, horizontal: 16),
+                              contentPadding: const EdgeInsets.symmetric(
+                                  vertical: 18, horizontal: 16),
                             ),
                             cursorColor: Colors.black,
-                            validator: (value) => value == null || value.isEmpty ? 'Enter Landmark' : null,
+                            validator: (value) => value == null || value.isEmpty
+                                ? 'Enter Landmark'
+                                : null,
                           ),
                         ),
                       ],
@@ -322,16 +363,20 @@ class _PatientRegistrationPageState extends State<PatientRegistrationPage> {
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
-                          borderSide: const BorderSide(color: Color(0xFFBDBDBD)),
+                          borderSide:
+                              const BorderSide(color: Color(0xFFBDBDBD)),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
-                          borderSide: const BorderSide(color: Colors.black, width: 2),
+                          borderSide:
+                              const BorderSide(color: Colors.black, width: 2),
                         ),
-                        contentPadding: const EdgeInsets.symmetric(vertical: 18, horizontal: 16),
+                        contentPadding: const EdgeInsets.symmetric(
+                            vertical: 18, horizontal: 16),
                       ),
                       cursorColor: Colors.black,
-                      validator: (value) => value == null || value.isEmpty ? 'Enter Area' : null,
+                      validator: (value) =>
+                          value == null || value.isEmpty ? 'Enter Area' : null,
                     ),
                     const SizedBox(height: 8),
                     TextFormField(
@@ -347,16 +392,21 @@ class _PatientRegistrationPageState extends State<PatientRegistrationPage> {
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
-                          borderSide: const BorderSide(color: Color(0xFFBDBDBD)),
+                          borderSide:
+                              const BorderSide(color: Color(0xFFBDBDBD)),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
-                          borderSide: const BorderSide(color: Colors.black, width: 2),
+                          borderSide:
+                              const BorderSide(color: Colors.black, width: 2),
                         ),
-                        contentPadding: const EdgeInsets.symmetric(vertical: 18, horizontal: 16),
+                        contentPadding: const EdgeInsets.symmetric(
+                            vertical: 18, horizontal: 16),
                       ),
                       cursorColor: Colors.black,
-                      validator: (value) => value == null || value.isEmpty ? 'Enter City/Town' : null,
+                      validator: (value) => value == null || value.isEmpty
+                          ? 'Enter City/Town'
+                          : null,
                     ),
                     const SizedBox(height: 8),
                     TextFormField(
@@ -372,16 +422,21 @@ class _PatientRegistrationPageState extends State<PatientRegistrationPage> {
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
-                          borderSide: const BorderSide(color: Color(0xFFBDBDBD)),
+                          borderSide:
+                              const BorderSide(color: Color(0xFFBDBDBD)),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
-                          borderSide: const BorderSide(color: Colors.black, width: 2),
+                          borderSide:
+                              const BorderSide(color: Colors.black, width: 2),
                         ),
-                        contentPadding: const EdgeInsets.symmetric(vertical: 18, horizontal: 16),
+                        contentPadding: const EdgeInsets.symmetric(
+                            vertical: 18, horizontal: 16),
                       ),
                       cursorColor: Colors.black,
-                      validator: (value) => value == null || value.isEmpty ? 'Enter District' : null,
+                      validator: (value) => value == null || value.isEmpty
+                          ? 'Enter District'
+                          : null,
                     ),
                     const SizedBox(height: 8),
                     TextFormField(
@@ -397,16 +452,20 @@ class _PatientRegistrationPageState extends State<PatientRegistrationPage> {
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
-                          borderSide: const BorderSide(color: Color(0xFFBDBDBD)),
+                          borderSide:
+                              const BorderSide(color: Color(0xFFBDBDBD)),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
-                          borderSide: const BorderSide(color: Colors.black, width: 2),
+                          borderSide:
+                              const BorderSide(color: Colors.black, width: 2),
                         ),
-                        contentPadding: const EdgeInsets.symmetric(vertical: 18, horizontal: 16),
+                        contentPadding: const EdgeInsets.symmetric(
+                            vertical: 18, horizontal: 16),
                       ),
                       cursorColor: Colors.black,
-                      validator: (value) => value == null || value.isEmpty ? 'Enter State' : null,
+                      validator: (value) =>
+                          value == null || value.isEmpty ? 'Enter State' : null,
                     ),
                     const SizedBox(height: 20),
                     ElevatedButton(
